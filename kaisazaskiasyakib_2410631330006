@@ -1,0 +1,49 @@
+def hitung_energi_potensial(massa, gravitasi, ketinggian):
+    return massa * gravitasi * ketinggian
+
+def hitung_massa(energi_potensial, gravitasi, ketinggian):
+    return energi_potensial / (gravitasi * ketinggian)
+
+def hitung_ketinggian(energi_potensial, massa, gravitasi):
+    return energi_potensial / (massa * gravitasi)
+
+def main():
+    print("Pilih perhitungan:")
+    print("1. Hitung Energi Potensial")
+    print("2. Hitung Massa")
+    print("3. Hitung Ketinggian")
+
+    pilihan = input("Masukkan pilihan (1/2/3): ")
+
+    if pilihan == '1':
+        massa = float(input("Masukkan massa (kg): "))
+        gravitasi = float(input("Masukkan percepatan gravitasi (m/s²): "))
+        ketinggian = float(input("Masukkan ketinggian (m): "))
+        energi_potensial = hitung_energi_potensial(massa, gravitasi, ketinggian)
+        print(f"Energi Potensial: {energi_potensial:.2f} Joule")
+
+    elif pilihan == '2':
+        energi_potensial = float(input("Masukkan energi potensial (Joule): "))
+        gravitasi = float(input("Masukkan percepatan gravitasi (m/s²): "))
+        ketinggian = float(input("Masukkan ketinggian (m): "))
+        if gravitasi * ketinggian == 0:
+            print("Gravitasi dan ketinggian tidak boleh nol.")
+        else:
+            massa = hitung_massa(energi_potensial, gravitasi, ketinggian)
+            print(f"Massa: {massa:.2f} kg")
+
+    elif pilihan == '3':
+        energi_potensial = float(input("Masukkan energi potensial (Joule): "))
+        massa = float(input("Masukkan massa (kg): "))
+        gravitasi = float(input("Masukkan percepatan gravitasi (m/s²): "))
+        if massa * gravitasi == 0:
+            print("Massa dan gravitasi tidak boleh nol.")
+        else:
+            ketinggian = hitung_ketinggian(energi_potensial, massa, gravitasi)
+            print(f"Ketinggian: {ketinggian:.2f} m")
+
+    else:
+        print("Pilihan tidak valid.")
+
+if __name__ == "_main_":1
+main()
